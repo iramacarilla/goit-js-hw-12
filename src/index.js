@@ -14,17 +14,16 @@ const search = document.querySelector('#input')
 const country = document.querySelector('.country')
 
 
-function click() {
+function click(text) {
   error({
-    text:
-      "Too many matches found. Please enter a more specific query",
-      delay: 2000,
+    text,
+    delay: 2000,
   });
 }
 
 const dataHandler = (arr) => {
   if(arr.length > 10) {
-    click();
+    click("Too many matches found. Please enter a more specific query");
     }
 
   else if (arr.length > 2 && arr.length < 10 )
@@ -35,6 +34,7 @@ const dataHandler = (arr) => {
   {
     updateData(arr)
   }
+  else {click('Country not found')}
 }
 
 const getData = event =>

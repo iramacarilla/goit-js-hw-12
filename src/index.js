@@ -18,7 +18,7 @@ function click() {
   error({
     text:
       "Too many matches found. Please enter a more specific query",
-      delay: 3000,
+      delay: 2000,
   });
 }
 
@@ -44,6 +44,7 @@ const getData = event =>
   country.innerHTML = '';
   const put = event.target.value;
   fetchCountries(put).then(dataHandler)}
+  else {country.innerHTML = ''}
   }
 
 const updateData = (data) =>
@@ -56,6 +57,6 @@ const updateOneCountryData = (data) =>
   country.insertAdjacentHTML('beforeend', markup)
 }
 
-search.addEventListener('input', _.debounce(getData, 500));
+search.addEventListener('input', debounce(getData, 500));
 
 
